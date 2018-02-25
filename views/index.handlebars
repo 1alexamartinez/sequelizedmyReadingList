@@ -1,0 +1,38 @@
+<h1>myReadingList!</h1>
+
+<h2>Books I Want to Read!</h2>
+
+<ul>
+  {{#each books}}
+    {{#unless reading}}
+      {{> books/book-block read=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Books I have Read!</h2>
+
+<ul>
+  {{#each books}}
+    {{#if reading}}
+      {{> books/book-block read=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a book</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="bookname">Book Name:</label>
+    <input type="text" id="bookname" name="bookName">
+  </div>
+
+  <div class="form-group">
+    <label for="readi">I...</label><br>
+    <input type="radio" name="reading" value="1" checked> Have read it already!<br>
+    <input type="radio" name="reading" value="0"> Am going to read it!
+  </div>
+
+  <button type="submit">Add A Book</button>
+</form>
